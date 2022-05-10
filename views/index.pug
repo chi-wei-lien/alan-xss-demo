@@ -42,6 +42,23 @@ body#dark-mode-canvas.canvas
           | I love doing hackathons with my friends, playing video games, and listening to music. This is my discord demo#0000, shoot me a message if you want to play games with me!
         img(src='/images/acheivements.png')
       .col-md-3
+    .row
+      .col-md-3
+      .col-md-6
+        form(action="/" method="POST")
+          .form-group
+            label(for="comment") Comment:
+              textarea.form-control(id="comment" name="comment" rows="3") 
+          button.btn.btn-secondary(type="submit") submit
+      .col-md-3
+    
+    //- .card-columns
+    //-   each card in cards
+    //-     .card
+    //-       img.card-img-top(style="height: auto; width:300px" src!=card.pic)
+    //-       .card-body
+    //-         h5.card-title #{card.title}
+    //-         p.card-text #{card.subtitle}
   .container-fluid.footer
     .row
       .col-md-3
@@ -57,36 +74,38 @@ script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
 script.
-  function replace(x) {
-    x.style.top = Math.floor(Math.random() * screen.width) + "px";
-    x.style.left = Math.floor(Math.random() * screen.height) + "px";
+  function createAlan() {
+    const alan = document.createElement("div");
+    alan.style.background = "#ffcf31";
+    alan.style.position = "absolute";
+    replace(alan);
+    const hi = document.createElement("h1");
+    hi.innerHTML = "hi I'm alan";
+    const close = document.createElement("button");
+    close.innerHTML = "close";
+    close.onclick = function() {
+      replace(alan);
+    };
+    const closePermanantly = document.createElement("button");
+    closePermanantly.innerHTML = "close permanantly";
+    closePermanantly.onclick = function() {
+      closePermanantlyFunc(alan);
+    }
+    alan.appendChild(hi);
+    alan.appendChild(close);
+    alan.appendChild(closePermanantly);
+    document.body.appendChild(alan);
   }
 
-  const alan = document.createElement("div");
-  alan.style.background = "#ffcf31";
-  alan.style.position = "absolute";
-  replace(alan);
-  const hi = document.createElement("h1");
-  hi.innerHTML = "hi I'm alan";
-  const close = document.createElement("button");
-  close.innerHTML = "close";
-  close.onclick = function() {
-    replace(alan);
-  };
-  const closePermanantly = document.createElement("button");
-  closePermanantly.innerHTML = "close permanantly";
-  closePermanantly.onclick = function() {
-    replace(alan);
-    const sadAlan = document.createElement("div");
-    const sad = document.createElement("h1");
-    sad.innerHTML = "alan is sad";
-    sadAlan.style.background = "#ffcf31";
-    sadAlan.style.position = "absolute";
-    sadAlan.appendChild(sad);
-    replace(sadAlan)
-    document.body.appendChild(sadAlan);
+  function replace(alan) {
+    alan.style.top = Math.floor(Math.random() * screen.width) + "px";
+    alan.style.left = Math.floor(Math.random() * screen.height) + "px";
   }
-  alan.appendChild(hi);
-  alan.appendChild(close);
-  alan.appendChild(closePermanantly);
-  document.body.appendChild(alan);
+
+  function closePermanantlyFunc(alan) {
+    createAlan();
+  }
+
+  //- createAlan();
+
+  
