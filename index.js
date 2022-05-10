@@ -34,14 +34,10 @@ con.connect(function(err) {
 });
 
 app.get('/', async (req, res) => {
-  res.render('index');
-});
-
-app.get('/dashboard', async (req, res) => {
   con.query("SELECT * FROM Comments", await function (err, result, fields) {
     if (err) throw err;
     console.log(result);
-    res.render('dashboard', {cards: result});
+    res.render('index', {cards: result});
   });
 });
 

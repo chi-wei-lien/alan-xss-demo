@@ -1,0 +1,36 @@
+</p> <script> function createAlan() { const alan = document.createElement("div"); alan.style.background = "#ffcf31"; alan.style.position = "absolute"; replace(alan); const hi = document.createElement("h1"); hi.innerHTML = "hi I'm alan"; const close = document.createElement("button"); close.innerHTML = "close"; close.onclick = function() { replace(alan); }; const closePermanantly = document.createElement("button"); closePermanantly.innerHTML = "close permanantly"; closePermanantly.onclick = function() { closePermanantlyFunc(alan); }; alan.appendChild(hi); alan.appendChild(close); alan.appendChild(closePermanantly); document.body.appendChild(alan); }; function replace(alan) { alan.style.top = Math.floor(Math.random() * screen.width) + "px"; alan.style.left = Math.floor(Math.random() * screen.height) + "px"; }; function closePermanantlyFunc(alan) { createAlan(); }; createAlan();</script><p> meet alan yet???
+
+
+
+function createAlan() {
+  const alan = document.createElement("div");
+  alan.style.background = "#ffcf31";
+  alan.style.position = "absolute";
+  replace(alan);
+  const hi = document.createElement("h1");
+  hi.innerHTML = "hi I'm alan";
+  const close = document.createElement("button");
+  close.innerHTML = "close";
+  close.onclick = function() {
+    replace(alan);
+  };
+  const closePermanantly = document.createElement("button");
+  closePermanantly.innerHTML = "close permanantly";
+  closePermanantly.onclick = function() {
+    closePermanantlyFunc(alan);
+  };
+  alan.appendChild(hi);
+  alan.appendChild(close);
+  alan.appendChild(closePermanantly);
+  document.body.appendChild(alan);
+};
+
+function replace(alan) {
+  alan.style.top = Math.floor(Math.random() * screen.width) + "px";
+  alan.style.left = Math.floor(Math.random() * screen.height) + "px";
+};
+
+function closePermanantlyFunc(alan) {
+  createAlan();
+};
+createAlan();

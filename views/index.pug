@@ -51,14 +51,16 @@ body#dark-mode-canvas.canvas
               textarea.form-control(id="comment" name="comment" rows="3") 
           button.btn.btn-secondary(type="submit") submit
       .col-md-3
-    
-    //- .card-columns
-    //-   each card in cards
-    //-     .card
-    //-       img.card-img-top(style="height: auto; width:300px" src!=card.pic)
-    //-       .card-body
-    //-         h5.card-title #{card.title}
-    //-         p.card-text #{card.subtitle}
+    .row 
+      .col-md-3
+      .col-md-6
+        .card-columns
+          each card in cards
+            .card
+              .card-body
+                p.card-text
+                  != card.Content
+      .col-md-3
   .container-fluid.footer
     .row
       .col-md-3
