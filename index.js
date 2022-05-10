@@ -8,6 +8,8 @@ var mysql = require('mysql');
 app.set('views', './views');
 app.set('view engine', 'pug');
 
+app.use(express.static(__dirname + '/public'));
+
 app.use(session({
 	secret: process.env.MY_SECRET,
   cookie: {
